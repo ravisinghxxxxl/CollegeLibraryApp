@@ -20,11 +20,32 @@ Display.prototype.add = function (book) {
                  </tr> `;
 tableBody.innerHTML += uiString;
 };
+
+// IMPLEMENT CLEAR FUNCTION
 Display.prototype.clear = function () {
   let libraryForm = document.getElementById("libraryForm");
   libraryForm.reset();
 };
 
+// IMPLEMENT VALIDATE FUNCTION
+Display.prototype.validate = function (book) {
+ if(book.name.length<2 || book.author.length<2) {
+     return false;
+ } else {
+     return true;
+ }
+};
+
+// SHOW ERROR
+Display.prototype.show = function(type, showMessage){
+let message = document.getElementById('message');
+message.innerHTML = `<div class="alert alert-${type} 
+             alert-dismissible fade show" role="alert">
+            <strong>Message!</strong> ${showMessage}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>`
+}
 // ADD SUBMIT EVENtLISTENER TO libraryForm
 let libraryForm = document.getElementById("libraryForm");
 libraryForm.addEventListener("submit", libraryFormSubmit);
@@ -51,6 +72,13 @@ function libraryFormSubmit(e) {
   console.log(book);
 
   let display = new Display();
-  display.add(book);
-  display.clear();
+
+  if (display.validate(book)){
+      display.add(book);
+      display.clear();
+      display.show('success', 'Your book has been successfully added!');
+    } else {
+        // SHOW ERROR TO USER
+        display.show('danger', 'Sorry you can not add this book!');
+  };
 }
