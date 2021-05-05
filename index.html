@@ -41,7 +41,7 @@
         <div class="container my-3">
             <h1>The College Library</h1>
             <hr>
-            <form>
+            <form id="libraryForm">
                 <div class="form-group row">
                     <label for="bookName" class="col-sm-2 col-form-label">Name</label>
                     <div class="col-sm-10">
@@ -64,8 +64,8 @@
                                 <input class="form-check-input" type="radio"
                                     name="type" id="fiction" value="fiction"
                                     checked>
-                                <label class="form-check-label" for="finction">
-                                    Fiction </label>
+                                <label class="form-check-label" for="fiction">
+                                    Fiction </label> 
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio"
@@ -90,6 +90,39 @@
                     </div>
                 </div>
             </form>
+            <div id="table">
+                <h1>Your books</h1>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Author</th>
+                            <th scope="col">Type</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>@fat</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Larry</td>
+                            <td>the Bird</td>
+                            <td>@twitter</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -104,6 +137,6 @@
             src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
             integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
             crossorigin="anonymous"></script>
-            <script src="index.js"></script>
+        <script src="index.js"></script>
     </body>
 </html>
